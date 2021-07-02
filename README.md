@@ -40,9 +40,9 @@ First, verify matplotlib works by running your a matplotlib file as normal.
 
 Run matplotlib with this backend:
 
-`$ MPLBACKEND=module://matplotlib_filebackend python example.py`
+`$ MPLBACKEND=module://matplotlib_imagebackend python example.py`
 
 Output images to a directory named "output":
 
-`$ MPLBACKEND=module://matplotlib_filebackend MATPLOTLIB_IMAGEBACKEND_DIR=output python example.py`
+`$ MPLBACKEND=module://matplotlib_imagebackend MATPLOTLIB_IMAGEBACKEND_DIR=output python example.py`
 
