@@ -20,7 +20,7 @@ Clone the github repo.
 
 In a python environment that already has matplotlib installed, run:
 
-`$ pip install .`
+`$ pip3 install .`
 
 
 Environment variables:
@@ -36,13 +36,13 @@ Running:
 
 First, verify matplotlib works by running your a matplotlib file as normal.
 
-`$ python example.py`
+`$ python3 example.py`
 
 Run matplotlib with this backend:
 
-`$ MPLBACKEND=module://matplotlib_imagebackend python example.py`
+`$ MPLBACKEND=module://matplotlib_imagebackend python3 example.py`
 
 Output images to a directory named "output":
 
-`$ MPLBACKEND=module://matplotlib_imagebackend MATPLOTLIB_IMAGEBACKEND_DIR=output python example.py`
+`$ MPLBACKEND=module://matplotlib_imagebackend MATPLOTLIB_IMAGEBACKEND_DIR=output python3 example.py`
 
