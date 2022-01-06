@@ -22,9 +22,11 @@ MODULE_NAME = "matplotlib_imagebackend"
 DEFAULT_BACKEND = "agg"
 OUTPUT_DIRECTORY = os.environ.get("MATPLOTLIB_IMAGEBACKEND_DIR", ".")
 
+# Map backend names to modules they import
+BACKEND_MODULES = {"agg": "aggdraw", "cairo": "cairo"}
 
 def get_default_backend():
-    for module, backend_name in [("aggdraw", "agg"), ("pycairo", "cairo")]:
+    for backend_name, module in BACKEND_MODULES.items():
         try:
             __import__(module)
             return backend_name
@@ -44,6 +46,8 @@ def get_delegate_backend():
     backend_name = os.environ.get("MATPLOTLIB_IMAGEBACKEND_BACKEND")
     if not backend_name:
         backend_name = get_default_backend()
+        if not backend_name:
+            raise ValueError(f"MATPLOTLIB_IMAGEBACKEND_BACKEND not specified and could not import of the default backends: {BACKEND_MODULES.keys()}")
 
     valid_backends = [
         name for name in rcsetup.non_interactive_bk if name != MODULE_NAME
